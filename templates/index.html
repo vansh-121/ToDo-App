@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+        
+
+
+    <div class="container-fluid">
+      <form action="/" method="POST">
+        <div class="mb-3">
+          <h1>Todo List</h1>
+          <label for="name">Todo Name</label>
+          <input type="text" name="name" id="name" class="form-control" />
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+          <label for="details">Todo Details</label>
+          <input type="text" name="details" id="details" class="form-control" />
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Todo Submit</button>
+      </form>
+    </div>
+    <!-- <br>
+    <br> -->
+    <div class="container-fluid my-5">
+      <h1>Todo Details</h1>
+      {% if allvansh|length == 0 %}
+      <div class="alert alert-secondary" role="alert">
+        Add Todo to begin...No Todo Found
+      </div>
+      {% else %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Details</th>
+              <th scope="col">Date</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for vansh in allvansh %}
+              <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td>{{ vansh.name }}</td>
+                <td>{{ vansh.details }}</td>
+                <td>{{ vansh.date }}</td>
+                <td>
+                  <a href="/update/{{ vansh.sno }}" class="btn btn-light">Update</a>
+                  <a href="/delete/{{ vansh.sno }}" class="btn btn-dark">Delete</a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock body %}
+  </body>
+</html>

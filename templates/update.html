@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+        
+
+
+    <div class="container-fluid">
+        <h1>Update Todo</h1>
+      <form action="/update/{{allvansh.sno}}" method="POST">
+        <div class="mb-3">
+          <label for="name">Todo Name</label>
+          <input type="text" name="name" id="name" value={{allvansh.name}} class="form-control" />
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+        <label for="details">Todo Details</label>
+        <input type="text" name="details" id="details" value="{{allvansh.details}}"  class="form-control" />
+        </div>
+        <!-- <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Todo Update</button>
+      </form>
+    </div>
+    <!-- <br>
+    <br> -->
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {% endblock body %}
+  </body>
+</html>
